@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nabídka práce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="myForm" action="upload.php" method="post" enctype="multipart/form-data">
+        <h1>Odpověď na nabídku práce</h1>
+        <label for="name">Jméno:</label>
+        <input type="text" id="fname" name="fname" required>
+
+        <label for="name">Příjmení:</label>
+        <input type="text" id="lname" name="lname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="address">Adresa:</label>
+        <input type="text" id="address" name="address">
+
+        <label for="dob">Datum narození:</label>
+        <input type="date" id="dob" name="dob">
+
+        <label for="message">Zpráva:</label>
+        <textarea id="message" name="message"></textarea>
+
+        <label for="file">CV:</label>
+        <input type="file" id="file" name="file" accept=".pdf, .doc, .docx" required>
+
+        <label>Pohlaví:</label>
+        <label for="male">Muž</label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="female">Žena</label>
+        <input type="radio" id="female" name="gender" value="female">
+
+        <label for="terms">Souhlasím s podmínkami zpracovávání osobních údajů:</label>
+        <input type="checkbox" id="terms" name="terms" required>
+
+        <div class="g-recaptcha" data-sitekey="6LeSOE0pAAAAAOhwiISGif8tNFJUpqfr1VFQ7Ca4"></div>
+
+        <button type="submit">Odeslat</button>
+    </form>
+
+    <button id="adminButton" onclick="toggleAdminForm()">Admin</button>
+
+    <form id="adminForm" action="admin.php" method="post" style="display: none;">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit" value="login">Login</button>
+    </form>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="script.js"></script>
+
+    <script>
+        function toggleAdminForm() {
+            var adminForm = document.getElementById("adminForm");
+            if (adminForm.style.display === "none") {
+                adminForm.style.display = "block";
+            } else {
+                adminForm.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
